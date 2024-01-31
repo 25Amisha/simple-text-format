@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Formatting Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            padding: 10px;
+        }
+
+        button {
+            margin-right: 10px;
+            margin-bottom: 10px;
+            padding: 8px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        #formattedText {
+            border: 2px solid #333;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <textarea id="textInput" placeholder="Type your text here..."></textarea>
+    
+    <div>
+        <button onclick="applyBold()">Bold</button>
+        <button onclick="applyItalic()">Italic</button>
+        <button onclick="changeFontSize()">Font Size</button>
+        <button onclick="changeFontType()">Font Type</button>
+        <button onclick="applyUnderline()">Underline</button>
+        <button onclick="applyBorder()">Border</button>
+        <button onclick="applyTextShadow()">Text Shadow</button>
+        <button onclick="changeLineSpacing()">Line Spacing</button>
+        <button onclick="changeBackgroundColor()">Background Color</button>
+        <button onclick="changeTextColor()">Text Color</button>
+    </div>
+
+    <div id="formattedText"></div>
+
+    <script>
+        function applyBold() {
+            applyStyle('fontWeight', 'bold');
+        }
+
+        function applyItalic() {
+            applyStyle('fontStyle', 'italic');
+        }
+
+        function changeFontSize() {
+            const size = prompt('Enter font size (e.g., 16px):');
+            if (size) {
+                applyStyle('fontSize', size);
+            }
+        }
+
+        function changeFontType() {
+            const font = prompt('Enter font type (e.g., Arial):');
+            if (font) {
+                applyStyle('fontFamily', font);
+            }
+        }
+
+        function applyUnderline() {
+            applyStyle('textDecoration', 'underline');
+        }
+
+        function applyBorder() {
+            applyStyle('border', '2px solid #333');
+        }
+
+        function applyTextShadow() {
+            const shadow = prompt('Enter text shadow (e.g., 2px 2px 2px #333):');
+            if (shadow) {
+                applyStyle('textShadow', shadow);
+            }
+        }
+
+        function changeLineSpacing() {
+            const spacing = prompt('Enter line spacing (e.g., 1.5):');
+            if (spacing) {
+                applyStyle('lineHeight', spacing);
+            }
+        }
+
+        function changeBackgroundColor() {
+            const color = prompt('Enter background color (e.g., #f0f0f0):');
+            if (color) {
+                applyStyle('backgroundColor', color);
+            }
+        }
+
+        function changeTextColor() {
+            const color = prompt('Enter text color (e.g., #333):');
+            if (color) {
+                applyStyle('color', color);
+            }
+        }
+
+        function applyStyle(property, value) {
+            const textInput = document.getElementById('textInput');
+            const formattedText = document.getElementById('formattedText');
+            formattedText.style[property] = value;
+            formattedText.textContent = textInput.value;
+        }
+    </script>
+</body>
+</html>
